@@ -1906,7 +1906,7 @@ val insert_into_builder : llvalue -> string -> llbuilder -> unit
 (** [set_current_debug_location b md] sets the current debug location [md] in
     the builder [b].
     See the method [llvm::IRBuilder::SetDebugLocation]. *)
-val set_current_debug_location : llbuilder -> llvalue -> unit
+val set_current_debug_location : llbuilder -> llmetadata -> unit
 
 (** [clear_current_debug_location b] clears the current debug location in the
     builder [b]. *)
@@ -1915,7 +1915,7 @@ val clear_current_debug_location : llbuilder -> unit
 (** [current_debug_location b] returns the current debug location, or None
     if none is currently set.
     See the method [llvm::IRBuilder::GetDebugLocation]. *)
-val current_debug_location : llbuilder -> llvalue option
+val current_debug_location : llbuilder -> llmetadata option
 
 (** [set_inst_debug_location b i] sets the current debug location of the builder
     [b] to the instruction [i].

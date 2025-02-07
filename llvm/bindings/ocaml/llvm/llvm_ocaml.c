@@ -2030,26 +2030,26 @@ value llvm_insert_into_builder(value I, value Name, value B) {
 
 /*--... Metadata ...........................................................--*/
 
-/* llbuilder -> llvalue -> unit */
+/* llbuilder -> llmetadata -> unit */
 value llvm_set_current_debug_location(value B, value V) {
-  LLVMSetCurrentDebugLocation(Builder_val(B), Value_val(V));
+  LLVMSetCurrentDebugLocation2(Builder_val(B), Metadata_val(V));
   return Val_unit;
 }
 
 /* llbuilder -> unit */
 value llvm_clear_current_debug_location(value B) {
-  LLVMSetCurrentDebugLocation(Builder_val(B), NULL);
+  LLVMSetCurrentDebugLocation2(Builder_val(B), NULL);
   return Val_unit;
 }
 
-/* llbuilder -> llvalue option */
+/* llbuilder -> llmetadata option */
 value llvm_current_debug_location(value B) {
-  return ptr_to_option(LLVMGetCurrentDebugLocation(Builder_val(B)));
+  return ptr_to_option(LLVMGetCurrentDebugLocation2(Builder_val(B)));
 }
 
 /* llbuilder -> llvalue -> unit */
 value llvm_set_inst_debug_location(value B, value V) {
-  LLVMSetInstDebugLocation(Builder_val(B), Value_val(V));
+  LLVMAddMetadataToInst(Builder_val(B), Value_val(V));
   return Val_unit;
 }
 

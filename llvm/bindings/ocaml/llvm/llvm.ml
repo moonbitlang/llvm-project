@@ -1161,11 +1161,11 @@ let position_at_end bb = position_builder (At_end bb)
 
 
 (*--... Metadata ...........................................................--*)
-external set_current_debug_location : llbuilder -> llvalue -> unit
+external set_current_debug_location : llbuilder -> llmetadata -> unit
                                     = "llvm_set_current_debug_location"
 external clear_current_debug_location : llbuilder -> unit
                                       = "llvm_clear_current_debug_location"
-external current_debug_location : llbuilder -> llvalue option
+external current_debug_location : llbuilder -> llmetadata option
                                     = "llvm_current_debug_location"
 external set_inst_debug_location : llbuilder -> llvalue -> unit
                                  = "llvm_set_inst_debug_location"
